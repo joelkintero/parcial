@@ -1,0 +1,29 @@
+public class Main {
+    public static void main(String[] args) {
+        int[] myArray = {1, 2, 2, 5, 4, 6, 7, 8, 8, 8}; // arreglo de ejemplo
+        int currentNum = myArray[0]; // el número actual que estamos contando ocurrencias
+        int maxNum = myArray[0]; // el número con más ocurrencias seguidas
+        int currentCount = 1; // la cantidad de veces que el número actual aparece seguido
+        int maxCount = 1; // la cantidad máxima de veces que un número aparece seguido
+        
+        // recorremos el arreglo de izquierda a derecha
+        for (int i = 1; i < myArray.length; i++) {
+            // si el número actual es igual al número anterior, aumentamos el contador
+            if (myArray[i] == currentNum) {
+                currentCount++;
+            } else {
+                // si el número actual es diferente al número anterior, reseteamos el contador
+                currentNum = myArray[i];
+                currentCount = 1;
+            }
+            // si el contador actual es mayor que la cantidad máxima registrada,
+            // actualizamos el número y la cantidad máxima
+            if (currentCount > maxCount) {
+                maxCount = currentCount;
+                maxNum = currentNum;
+            }
+        }
+        // imprimimos el número con más ocurrencias seguidas y la cantidad de veces que aparece en la secuencia
+        System.out.println("El número con más ocurrencias seguidas es " + maxNum + " y aparece " + maxCount + " veces seguidas.");
+    }
+}
